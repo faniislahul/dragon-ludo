@@ -1,0 +1,224 @@
+$blue: #3498db;
+$red: #c0392b;
+$green: #27ae60;
+$yellow: #f1c40f;
+
+body{
+  background-color: #1c1c1c;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  padding-top: 4rem; 
+  padding-left: 4rem; 
+  position: relative;
+}
+.game-board{
+  height: 600px;
+  width: 600px;
+  border: solid 1px white;
+  position: relative;
+}
+
+.player-board{
+  display: flex;
+  flex-direction: row;
+}
+.player-base{
+  background-color: $blue;
+  height: 240px;
+  width: 240px;
+  position: relative;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+}
+.player-base .home{
+  background-color: white;
+  height: 70%;
+  width: 70%;
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.player-base .home .bed{
+  height: 40px;
+  width: 40px;
+  // background-color: $blue;
+  border-radius: 50%;
+}
+.player-track{
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+.player-track .track{
+  background-color: white;
+  height: 38px;
+  width: 38px;
+  border: solid 1px #eeeeee;
+}
+.player-track .track.base-track{
+  background-color: $blue;
+  // border-color: $blue;
+}
+.fp-tl{
+  transform: rotate(90deg);
+  position: absolute;
+  top: 60px;
+  left: -60px;
+}
+.fp-tr{
+  transform: rotate(-180deg);
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.fp-bl{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.fp-br{
+  transform: rotate(-90deg);
+  position: absolute;
+  bottom: 60px;
+  right: -60px;
+}
+.fp-tl {
+  .player-base, .player-track .base-track, .beans, .checkpoint {
+    background-color: $red;
+  } 
+}
+.fp-tr {
+  .player-base, .player-track .base-track, .beans, .checkpoint {
+    background-color: $yellow;
+  } 
+}
+.fp-bl {
+    .player-base, .player-track .base-track, .beans, .checkpoint {
+      background-color: $blue;
+    } 
+  }
+.fp-br {
+  .player-base, .player-track .base-track, .beans, .checkpoint {
+    background-color: $green;
+  } 
+}
+
+.arrow-fp-tl{
+  height: 0px;
+  width: 0px;
+  border-left: solid 60px $red;
+  border-top: solid 60px transparent;
+  border-bottom: solid 60px transparent;
+  position: absolute;
+  top: 240px;
+  left: 240px;
+}
+
+.arrow-fp-tr{
+  height: 0px;
+  width: 0px;
+  border-right: solid 60px $green;
+  border-top: solid 60px transparent;
+  border-bottom: solid 60px transparent;
+  position: absolute;
+  top: 240px;
+  right: 240px;
+}
+
+.arrow-fp-bl{
+  height: 0px;
+  width: 0px;
+  border-bottom: solid 60px $blue;
+  border-right: solid 60px transparent;
+  border-left: solid 60px transparent;
+  position: absolute;
+  bottom: 240px;
+  left: 240px;
+}
+.arrow-fp-br{
+  height: 0px;
+  width: 0px;
+  border-top: solid 60px $yellow;
+  border-right: solid 60px transparent;
+  border-left: solid 60px transparent;
+  position: absolute;
+  top: 240px;
+  left: 240px;
+}
+
+.beans{
+    height: 20px;
+    width: 20px;
+    position: fixed;
+    z-index: 2;
+    // border-radius: 50px;
+    // border: solid 1px #111;
+    transition: all 300ms ease-in-out;
+    cursor: pointer;
+    text-align: center;
+}
+.beans img{
+  height: 40px;
+  width: 40px;
+  margin-top: -50px;
+  margin-left: -10px;
+  transition: all 300ms ease-in-out;
+}
+.beans.selected img{
+  height: 70px;
+  width: 70px;
+  margin-top: -60px;
+  margin-left: -20px;
+}
+.beans:hover{
+    transform: scale(1.15);
+}
+.tlBeans{
+  //  background-color: $red;
+}
+.trBeans{
+    // background-color: $yellow;
+}
+.blBeans{
+    // background-color: $blue;
+}
+.brBeans{
+    // background-color: $green;
+}
+
+.tower{
+  position: fixed;
+  z-index: 1;
+}
+.tower img{
+  height: 60px;
+  width: 60px;
+}
+.checkpoint{
+  height: 30px;
+  width: 30px;
+  margin: 4px;
+  border-radius: 50%;
+  opacity: .32;
+}
+
+.dice-box{
+  border: solid 15px $blue;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  right: -30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 2em;
+}
+.dice-box:hover{
+  cursor: pointer;
+}
